@@ -21,10 +21,7 @@ const tailLayout = {
 class Register extends Component{
   render(){
     const onSubmit = values => {
-      if ( values.name === "asd")
-        return onFinishFailed;
-      else 
-        console.log('Success', values);
+      console.log(values);
     }
     const onFinishFailed = errorInfo => {
       console.log('Failed:', errorInfo);
@@ -33,15 +30,13 @@ class Register extends Component{
       <Form
         {...layout}
         name="basic"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={this.props.onFinish}
+        initialValues= {[]}
+        onFinish={this.props.onSubmit}
         onFinishFailed={onFinishFailed}
       >
         <Form.Item
           label="Username"
-          name="name"
+          name="username"
           rules={[
             {
               required: true,
@@ -65,13 +60,9 @@ class Register extends Component{
           <Input.Password />
         </Form.Item>
 
-        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Login
           </Button>
         </Form.Item>
       </Form>

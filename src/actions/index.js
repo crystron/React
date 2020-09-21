@@ -25,3 +25,16 @@ export const actAddAccount = (item) => ({
     type: 'ADD_ACC',
     item
 });
+
+export const login = item => dispatch => {
+    axios.post("http://localhost:8080/api/auth/login", item)
+    .then(respone => {
+        console.log(respone.data)
+        dispatch(actLogin(item));
+    })
+}
+
+export const actLogin = (item) => ({
+    type: 'LOGIN',
+    item
+})

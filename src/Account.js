@@ -6,29 +6,6 @@ import axios from "axios";
 import 'antd/dist/antd.css';
 
 class Account extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-          array: []
-        }
-      }
-      
-      onFinish = values => {
-        axios
-        .post("http://localhost:8080/saveAcc", values)
-        .then((response) => {
-          
-          this.setState({ 
-            array: [...this.state.array, response.data]
-            })
-          axios
-          .get("http://localhost:8080/getAllAcc")
-          .then((response) => {
-            this.setState({ array: response.data})
-          });
-        })
-      };
-    
       onDelete = id => {
         let URL = `http://localhost:8080/delete/${id}`;
         axios.delete(URL).then((response) => 
@@ -52,8 +29,8 @@ class Account extends Component{
           },
           {
             title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            dataIndex: 'username',
+            key: 'username',
             render: text => <a>{text}</a>,
           },
           {

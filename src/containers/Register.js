@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { addAccount } from '../actions/index';
+import { addAccount, login, actLogin } from '../actions/index';
 import Register from '../Register';
 
 const mapDispatchToProps = (dispatch) => ({
     dispatch,
-    onFinish: (item) => dispatch(addAccount(item))
+    onFinish: (item) => dispatch(addAccount(item)),
+    onSubmit: (item) => dispatch(login(item))
   })
 
 function mapStateToProps(state) {

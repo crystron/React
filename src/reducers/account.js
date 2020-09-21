@@ -12,6 +12,8 @@ const account = (state = initState, action) => {
             return state;
         case 'UPDATE_ACC':
             return state;
+        case 'LOGIN':
+            console.log(action.item);
         default:
             return [...state]
     }
